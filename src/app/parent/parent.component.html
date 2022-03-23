@@ -1,5 +1,6 @@
 <p>parent works!</p>
 <div style="background-color: aqua;width: 500px;height: 500px">
+<!-- todo: (newItemEvent)="addItem($event) ->newItemEvent is the "custom Event created in child class to send the data to the parent.-->
   <app-child (newItemEvent)="addItem($event)"></app-child>
 </div>
 

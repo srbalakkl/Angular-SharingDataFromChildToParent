@@ -5,7 +5,7 @@ import {PageNotFoundComponentComponent} from "./page-not-found-component/page-no
 
 const routes: Routes = [
   {path: 'home', component: ParentComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', redirectTo: 'home', pathMatch: 'prefix'},
   {path: '**', component: PageNotFoundComponentComponent}
 ];
 
@@ -13,5 +13,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {
 }
