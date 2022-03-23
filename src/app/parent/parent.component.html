@@ -1,0 +1,8 @@
+<p>parent works!</p>
+<div style="background-color: aqua;width: 500px;height: 500px">
+  <app-child (newItemEvent)="addItem($event)"></app-child>
+</div>
+
+<ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul>
