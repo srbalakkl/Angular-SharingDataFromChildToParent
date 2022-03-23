@@ -18,6 +18,4 @@ export class ParentComponent implements OnInit {
     this.items.push(newItem);
   }
 
-
-
 }
