@@ -18,4 +18,12 @@ export class ParentComponent implements OnInit {
     this.items.push(newItem);
   }
 
+
+  parentMethod($event: string) {
+    console.log($event);
+  }
+
+  parentMethodForCDevent($event: number) {
+    console.log($event);
+  }
 }

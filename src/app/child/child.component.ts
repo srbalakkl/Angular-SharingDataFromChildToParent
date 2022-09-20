@@ -12,14 +12,27 @@ export class ChildComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.addChildData('hello From child')
+
   }
 
   //@Output() marks a property in a child component as a doorway through which data can travel from the child to the parent.
-  @Output() newItemEvent = new EventEmitter<string>();
+  @Output() newItemEvent = new EventEmitter<string> ();
+  @Output() childData = new EventEmitter<string> ();
+  @Output() CD = new EventEmitter<number> ();
 
   // To raise an event, an @Output() must have the type of EventEmitter, Which is a class in @angular/core that you use to emit custom events.
   addNewItem(value : string){
     this.newItemEvent.emit(value)
+    // this.childData.emit('Data from Child');
+  }
+
+  addChildData(value : string){
+    this.childData.emit(value);
+  }
+
+  emitCDevent(value: number){
+    this.CD.emit(value);
   }
 
 }
