@@ -1,9 +1,11 @@
 <p>parent works!</p>
 <div style="background-color: aqua;width: 500px;height: 500px">
-<!-- (newItemEvent)="addItem($event) ->newItemEvent is the "custom Event created in child class to send the data from child to the parent.-->
+  <!-- (newItemEvent)="addItem($event) ->newItemEvent is the "custom Event created in child class to send the data from child to the parent.-->
   <app-child (newItemEvent)="addItem($event)" (childData)="parentMethod($event)" (CD)="parentMethodForCDevent($event)"></app-child>
 </div>
 
 <ul>
-  <li *ngFor="let item of items">{{item}}</li>
+  @for (item of items; track item) {
+    <li>{{item}}</li>
+  }
 </ul>
