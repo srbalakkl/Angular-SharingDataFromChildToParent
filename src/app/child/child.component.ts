@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, model, OnInit, output} from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -13,14 +13,18 @@ export class ChildComponent implements OnInit {
   constructor() {
   }
 
+  childVariable = 'ChildVariable';
+  count = model(0)
+
   ngOnInit(): void {
     this.addChildData('hello From child')
   }
 
   //@Output() marks a property in a child component as a doorway through which data can travel from the child to the parent.
-  @Output() newItemEvent = new EventEmitter<string>();
-  @Output() childData = new EventEmitter<string>();
-  @Output() CD = new EventEmitter<number>();
+  // @Output() newItemEvent = new EventEmitter<string>();//old way to use @output decorator.
+  readonly newItemEvent = output<string>({alias: 'newItemEventsss'});
+  readonly childData = output<string>();
+  readonly CD = output<number>();
 
   // To raise an event, an @Output() must have the type of EventEmitter, Which is a class in @angular/core that you use to emit custom events.
   addNewItem(value: string) {
@@ -30,6 +34,10 @@ export class ChildComponent implements OnInit {
 
   addChildData(value: string) {
     this.childData.emit(value);
+  }
+
+  showString(val: string) {
+    return val + ' friends !';
   }
 
 }

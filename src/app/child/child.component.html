@@ -2,6 +2,8 @@
 <label for="item-input">Add an item:</label>
 <input type="text" id="item-input" #newItem>
 <!--here we we are using the template reference variable #newItem to get an value from the text box and add it to the button-->
-<button type="button" (click)="addNewItem(newItem.value)">Add to parent's list</button>
+<button type="button" (click)="addNewItem(newItem.value);CD.emit(200);">Add to parent's list</button>
+<br>
+<p>Child count = {{count()}}</p>
 <!--<button type="button" (click)="emitCDevent(1000)">emit CD event</button>-->
 

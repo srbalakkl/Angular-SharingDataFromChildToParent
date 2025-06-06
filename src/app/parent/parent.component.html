@@ -1,11 +1,24 @@
 <p>parent works!</p>
-<div style="background-color: aqua;width: 500px;height: 500px">
+
+<div>
+  Count No: <input type="number" placeholder="Enter the count no" #cnt_no>
+  <button type="button" (click)="parent_count = Number(cnt_no.value)">Change the count</button>
+  <p>parents count = {{ parent_count }}</p>
+</div>
+
+<div style="background-color: aqua;width: 500px;height: 200px">
   <!-- (newItemEvent)="addItem($event) ->newItemEvent is the "custom Event created in child class to send the data from child to the parent.-->
-  <app-child (newItemEvent)="addItem($event)" (childData)="parentMethod($event)" (CD)="parentMethodForCDevent($event)"></app-child>
+  <app-child #compRef (newItemEventsss)="addItem($event)" (childData)="parentMethod($event)"
+             (CD)="parentMethodForCDevent($event)" [(count)]="parent_count"></app-child>
+</div>
+
+
+<div>
+  <p>comp ref = {{ compRef.showString('Hi') }}</p>
 </div>
 
 <ul>
-  @for (item of items; track item) {
-    <li>{{item}}</li>
+  @for (item of items; track $index) {
+    <li>{{ item }}</li>
   }
 </ul>
